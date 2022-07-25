@@ -16,7 +16,7 @@ defaults:
     working-directory: ./api
 
 jobs:
-  unt-test:
+  unit-test:
     #This creates a new machine
     #I picked 'ubuntu-latest' is because I have 'wsl' or
     #a 'linux kernel' running on a windows machine.
@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: ./api/package-lock.json
       #Installing dependencies
       - name: install
@@ -40,4 +40,27 @@ jobs:
       - name: run unit test
         shell: bash
         run: npm run test
-
+  static-test:
+    #This creates a new machine
+    #I picked 'ubuntu-latest' is because I have 'wsl' or
+    #a 'linux kernel' running on a windows machine.
+    runs-on: ubuntu-latest
+    steps:
+      #Lets clone our repo in the new machine
+      - name: Checkout
+        uses: actions/checkout@v2
+      #Installing node
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "npm"
+          cache-dependency-path: ./api/package-lock.json
+      #Installing dependencies
+      - name: install
+        shell: bash
+        run: npm ci
+      #Running tests
+      - name: run unit test
+        shell: bash
+        run: npm run lint
