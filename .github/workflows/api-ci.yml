@@ -1,0 +1,43 @@
+name: API CI
+#on: [push] for repos with only one folder like ap or frontend
+
+#When you have multiple projects inside one, do the config below
+#This config pushes changes that occur in the api folder,
+# the workflows folder, and the api-ci.yml file
+
+on:
+  push:
+    paths:
+      - "./api/**"
+      - ".github/workflows/api-ci.yml"
+
+defaults:
+  run:
+    working-directory: ./api
+
+jobs:
+  unt-test:
+    #This creates a new machine
+    #I picked 'ubuntu-latest' is because I have 'wsl' or
+    #a 'linux kernel' running on a windows machine.
+    runs-on: ubuntu-latest
+    steps:
+      #Lets clone our repo in the new machine
+      - name: Checkout
+        uses: actions/checkout@v2
+      #Installing node
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: 'npm'
+          cache-dependency-path: ./api/package-lock.json
+      #Installing dependencies
+      - name: install
+        shell: bash
+        run: npm ci
+      #Running tests
+      - name: run unit test
+        shell: bash
+        run: npm run test
+
