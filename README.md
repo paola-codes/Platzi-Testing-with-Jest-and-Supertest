@@ -1,5 +1,6 @@
 # Platzi: Testing with Jest and Supertest
 
+
 This a follow-along project from Platzi's Javascript testing course at https://platzi.com/cursos/javascript-testing/
 
 ## Description
