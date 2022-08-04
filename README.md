@@ -63,4 +63,3 @@ This project is licensed under the ISC License
 
 Inspiration, code snippets, etc.
 * https://github.com/platzi/curso-testing-js
-*
