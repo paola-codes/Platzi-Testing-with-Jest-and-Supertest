@@ -1,13 +1,10 @@
 # Platzi: Testing with Jest and Supertest
 
-
 This a follow-along project from Platzi's Javascript testing course at https://platzi.com/cursos/javascript-testing/
 
 ## Description
 
-This project is made of javascript and a mongodb database; however, there is no front-end. The api creates and deletes collections of books. The point of this project is to learn practice automated unit tests and integration tests.
-
-## Getting Started
+This project is made of javascript and a mongodb database; however, there is no front-end. The api creates and deletes collections of books. The point of this project is to  practice automated unit tests and integration tests.
 
 ### Dependencies
 
@@ -26,11 +23,6 @@ This project is made of javascript and a mongodb database; however, there is no 
 *    "nodemon": "^2.0.15",
 *    "supertest": "^6.2.4"
 *  }
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ### Executing program
 
@@ -51,15 +43,11 @@ npm run e2e
 npm run start:prod
 ```
 
-## Version History
-
-* N/A
-
 ## License
 
 This project is licensed under the ISC License
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
+Original Project:
 * https://github.com/platzi/curso-testing-js
